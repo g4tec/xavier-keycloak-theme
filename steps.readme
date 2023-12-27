@@ -1,0 +1,6 @@
+- Acessar a maquina
+- Dar um pull no projeto que está na raiz
+- Copiar o projeto para o container
+    docker cp xavier-keycloak-theme 4dba7a66e439:/opt/jboss/keycloak/themes
+-Reiniciar o container
+    docker restart 4dba7a66e439
