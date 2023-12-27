@@ -4,9 +4,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--primary-base, #3775be);
+  text-align: center !important;
 }
 
-i.fa-google {
+#social-google::before {
   display: inline-block;
   width: 30px; /* Ajuste o tamanho conforme necessário */
   height: 30px; /* Ajuste o tamanho conforme necessário */
@@ -52,7 +54,12 @@ i.fa-google {
   display: none;
 }
 
-.login-pf-header:after {
+#kc-form-wrapper {
+  margin-top: 10px !important;
+  margin-bottom: 40px !important;
+}
+
+#kc-form-wrapper:after {
   content: "Faça login em sua conta";
   color: var(--primary-700, #051325);
   /* Headline/H6 */
@@ -64,10 +71,6 @@ i.fa-google {
 }
 
 /* --------------------- lgon.css ---------------------- */
-
-.login-pf body {
-  background: var(--primary-base, #3775be);
-}
 
 /*IE compatibility*/
 .pf-c-form-control {
@@ -338,7 +341,14 @@ div.kc-logo-text span {
 }
 
 #kc-content {
+  display: flex;
+  padding: 40px;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
   width: 100%;
+  border-radius: 4px;
+  background: var(--grey-0, #fff);
 }
 
 #kc-attempted-username {
@@ -357,12 +367,17 @@ div.kc-logo-text span {
   padding-top: 8px;
 }
 
-#kc-content-wrapper {
+#social-google {
   margin-top: 20px;
-}
-
-#kc-form-wrapper {
-  display: none;
+  display: flex;
+  width: 360px;
+  height: 44px;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border-radius: 4px;
+  border: 1px solid var(--grey-100, #e5e6e7);
 }
 
 #kc-info {
@@ -490,6 +505,13 @@ ul#kc-totp-supported-apps {
   text-align: center;
 }
 
+#social-google {
+  margin-bottom: 0.5rem; /* default - IE compatibility */
+  margin-bottom: var(--pf-global--spacer--sm);
+  font-size: 15px;
+  text-align: center;
+}
+
 .kc-social-provider-name {
   position: relative;
   top: 3px;
@@ -574,64 +596,6 @@ ul#kc-totp-supported-apps {
     position: relative;
     text-align: right;
     z-index: 9999;
-  }
-}
-
-@media (max-width: 767px) {
-  .login-pf body {
-    background: var(--primary-base, #3775be);
-  }
-
-  #kc-header {
-    padding-left: 15px;
-    padding-right: 15px;
-    float: none;
-    text-align: left;
-  }
-
-  #kc-header-wrapper {
-    font-size: 16px;
-    font-weight: bold;
-    padding: 20px 60px 0 0;
-    color: #72767b;
-    letter-spacing: 0;
-  }
-
-  div.kc-logo-text {
-    margin: 0;
-    width: 150px;
-    height: 32px;
-    background-size: 100%;
-  }
-
-  #kc-form {
-    float: none;
-  }
-
-  #kc-info-wrapper {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: transparent;
-  }
-
-  .login-pf .container {
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-
-  #kc-locale {
-    position: absolute;
-    width: 200px;
-    top: 20px;
-    right: 20px;
-    text-align: right;
-    z-index: 9999;
-  }
-
-  #kc-logo-wrapper {
-    background-size: 100px 21px;
-    height: 21px;
-    width: 100px;
-    margin: 20px 0 0 20px;
   }
 }
 
@@ -944,10 +908,10 @@ ul#kc-totp-supported-apps {
   --pf-global--palette--red-400: #470000;
   --pf-global--palette--red-500: #2c0000;
   --pf-global--palette--white: #fff;
-  --pf-global--BackgroundColor--100: #fff;
-  --pf-global--BackgroundColor--150: #f5f5f5;
-  --pf-global--BackgroundColor--200: #fafafa;
-  --pf-global--BackgroundColor--300: #ededed;
+  --pf-global--BackgroundColor--100: var(--primary-base, #3775be);
+  --pf-global--BackgroundColor--150: var(--primary-base, #3775be);
+  --pf-global--BackgroundColor--200: var(--primary-base, #3775be);
+  --pf-global--BackgroundColor--300: var(--primary-base, #3775be);
   --pf-global--BackgroundColor--light-100: #fff;
   --pf-global--BackgroundColor--light-200: #fafafa;
   --pf-global--BackgroundColor--light-300: #ededed;
