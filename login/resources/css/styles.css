@@ -4,7 +4,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--primary-base, #3775be);
+  background-color: var(--primary-base, #8323c1);
   text-align: center !important;
 }
 
@@ -21,8 +21,7 @@ body {
 #kc-header:after {
   width: 200px; /* ajuste o tamanho conforme necessário */
   height: 100px; /* ajuste o tamanho conforme necessário */
-  background: url("https://www.agentx.com.br/img/logo/logo-agentx-blank.svg")
-    no-repeat center center;
+  background: url("../images/logo-white.svg") no-repeat center center;
   background-size: contain; /* garante que a imagem se ajuste ao contêiner */
   margin-bottom: 50px;
   margin-top: 50px;
@@ -908,10 +907,10 @@ ul#kc-totp-supported-apps {
   --pf-global--palette--red-400: #470000;
   --pf-global--palette--red-500: #2c0000;
   --pf-global--palette--white: #fff;
-  --pf-global--BackgroundColor--100: var(--primary-base, #3775be);
-  --pf-global--BackgroundColor--150: var(--primary-base, #3775be);
-  --pf-global--BackgroundColor--200: var(--primary-base, #3775be);
-  --pf-global--BackgroundColor--300: var(--primary-base, #3775be);
+  --pf-global--BackgroundColor--100: var(--primary-base, #8323c1);
+  --pf-global--BackgroundColor--150: var(--primary-base, #8323c1);
+  --pf-global--BackgroundColor--200: var(--primary-base, #8323c1);
+  --pf-global--BackgroundColor--300: var(--primary-base, #8323c1);
   --pf-global--BackgroundColor--light-100: #fff;
   --pf-global--BackgroundColor--light-200: #fafafa;
   --pf-global--BackgroundColor--light-300: #ededed;
