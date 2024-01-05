@@ -18,6 +18,15 @@ body {
   content: "";
 }
 
+#social-microsoft::before {
+  display: inline-block;
+  width: 30px; /* Ajuste o tamanho conforme necessário */
+  height: 30px; /* Ajuste o tamanho conforme necessário */
+  background: url("../images/microsoft.png") no-repeat center center;
+  background-size: contain; /* Garante que a imagem se ajuste ao contêiner */
+  content: "";
+}
+
 #kc-header:after {
   width: 200px; /* ajuste o tamanho conforme necessário */
   height: 100px; /* ajuste o tamanho conforme necessário */
@@ -367,6 +376,19 @@ div.kc-logo-text span {
 }
 
 #social-google {
+  margin-top: 20px;
+  display: flex;
+  width: 360px;
+  height: 44px;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border-radius: 4px;
+  border: 1px solid var(--grey-100, #e5e6e7);
+}
+
+#social-microsoft {
   margin-top: 20px;
   display: flex;
   width: 360px;
