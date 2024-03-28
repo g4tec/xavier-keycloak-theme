@@ -71,10 +71,7 @@ title::before {
 a {
   color: var(--primary-400-main, #2c7742) !important;
   font-weight: 700 !important;
-}
-
-.checkbox {
-  margin-left: -1rem !important;
+  display: none;
 }
 
 #social-google::before {
