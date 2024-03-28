@@ -8,6 +8,15 @@ body {
   text-align: center !important;
 }
 
+/* #kc-page-title::after {
+  content: " to MyHomeLogin";
+}
+
+title::before {
+  content: "Entre RHAPP IA";
+  display: none;
+} */
+
 #social-google::before {
   display: inline-block;
   width: 30px; /* Ajuste o tamanho conforme necessário */

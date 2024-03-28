@@ -1,5 +1,6 @@
 - Acessar a maquina
 - Dar um pull no projeto que está na raiz
+git clone --branch agent-rh-theme  https://github.com/g4tec/xavier-keycloak-theme.git
 - Copiar o projeto para o container
     docker cp xavier-keycloak-theme 4dba7a66e439:/opt/jboss/keycloak/themes
 -Reiniciar o container
