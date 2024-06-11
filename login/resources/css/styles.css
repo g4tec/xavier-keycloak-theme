@@ -4,8 +4,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--primary-400-main, #2c7742);
+  background-color: var(--primary-400-main, #f7f7f7);
   text-align: center !important;
+}
+
+.input-error {
+  display: flex;
+  color: red;
 }
 
 /* #kc-page-title::after {
@@ -55,7 +60,7 @@ title::before {
 
 #kc-login {
   color: white;
-  background-color: var(--primary-400-main, #2c7742);
+  background-color: var(--primary-400-main, #222f5b);
   box-shadow: none !important;
   border: none !important;
 }
@@ -69,7 +74,7 @@ title::before {
 }
 
 a {
-  color: var(--primary-400-main, #2c7742) !important;
+  color: var(--primary-400-main, #f7f7f7) !important;
   font-weight: 700 !important;
   display: none;
 }
@@ -96,7 +101,7 @@ a {
 #kc-header:after {
   width: 200px; /* ajuste o tamanho conforme necessário */
   height: 100px; /* ajuste o tamanho conforme necessário */
-  background: url("../images/logo-white.svg") no-repeat center center;
+  background: url("../images/logo.svg") no-repeat center center;
   background-size: contain; /* garante que a imagem se ajuste ao contêiner */
   margin-bottom: 50px;
   margin-top: 50px;
@@ -134,7 +139,7 @@ a {
 }
 
 #kc-form-wrapper:before {
-  content: "Faça login em sua conta";
+  content: "Sign in with your account";
   color: var(--primary-700, #051325);
   /* Headline/H6 */
   font-family: Nunito;
@@ -984,10 +989,10 @@ ul#kc-totp-supported-apps {
   --pf-global--palette--red-400: #470000;
   --pf-global--palette--red-500: #2c0000;
   --pf-global--palette--white: #fff;
-  --pf-global--BackgroundColor--100: var(--primary-400-main, #2c7742);
-  --pf-global--BackgroundColor--150: var(--primary-400-main, #2c7742);
-  --pf-global--BackgroundColor--200: var(--primary-400-main, #2c7742);
-  --pf-global--BackgroundColor--300: var(--primary-400-main, #2c7742);
+  --pf-global--BackgroundColor--100: var(--primary-400-main, #f7f7f7);
+  --pf-global--BackgroundColor--150: var(--primary-400-main, #f7f7f7);
+  --pf-global--BackgroundColor--200: var(--primary-400-main, #f7f7f7);
+  --pf-global--BackgroundColor--300: var(--primary-400-main, #f7f7f7);
   --pf-global--BackgroundColor--light-100: #fff;
   --pf-global--BackgroundColor--light-200: #fafafa;
   --pf-global--BackgroundColor--light-300: #ededed;
