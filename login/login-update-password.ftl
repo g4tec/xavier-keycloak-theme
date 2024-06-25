@@ -23,7 +23,7 @@
                     <div class="${properties.kcInputWrapperClass!}">
                     <div class="${properties.kcInputGroup!}">
                         <div class="password-wraper">
-                            <input placeholder="Digite a senha" type="password" id="password-new" name="password-new" class="${properties.kcInputClass!}"
+                            <input required placeholder="Digite a senha" type="password" id="password-new" name="password-new" class="${properties.kcInputClass!}"
                             autofocus autocomplete="new-password"
                             aria-invalid="<#if messagesPerField.existsError('password','password-confirm')>true</#if>"
                             />
@@ -57,7 +57,7 @@
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <div class="password-wraper">
-                        <input placeholder="Digite a senha novamente" type="password" id="password-confirm" name="password-confirm"
+                        <input required placeholder="Digite a senha novamente" type="password" id="password-confirm" name="password-confirm"
                         class="${properties.kcInputClass!}"
                         autocomplete="new-password"
                         aria-invalid="<#if messagesPerField.existsError('password-confirm')>true</#if>"
@@ -92,7 +92,7 @@
                 <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
                     <#if isAppInitiatedAction??>
                     <#else>
-                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doSubmit")}" />
+                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="Redefinir senha" />
                     </#if>
                     </div>
                     </div>
