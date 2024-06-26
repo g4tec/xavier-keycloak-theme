@@ -1,7 +1,8 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=true displayMessage=!messagesPerField.existsError('username'); section>
-<#if section = "header">
-<#elseif section = "form">
+    <#if section = "header">
+        <!-- ${msg("emailForgotTitle")} -->
+    <#elseif section = "form">
     <div class="logo">
         <svg width="137" height="52" viewBox="0 0 137 52" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect y="0.87793" width="50.2435" height="50.2435" rx="25.1217" fill="white"/>
@@ -50,9 +51,6 @@
             </div>
         </form>
     <#elseif section = "info" >
-    <#if realm.duplicateEmailsAllowed>
-    <#else>
+        <!-- ${msg("emailInstruction")} -->
     </#if>
-    </#if>
-    </@layout.registrationLayout>
-</div>
+</@layout.registrationLayout>
