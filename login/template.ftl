@@ -7,6 +7,195 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        @media (max-width: 900px) {
+            div.form-wraper {
+                width: 80%;
+                margin: 0 5%;
+                padding: 5%;
+            }
+
+            .back {
+                top: 5% !important;
+                left: 4.5% !important;
+            }
+        }
+
+        div {
+            width: 100%;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+            overflow: scroll;
+            font-family: "Inter", sans-serif;
+            background-color: #2c7742;
+            color: var(--Grey-600, #4F4F4F);
+            overflow: hidden;
+        }
+
+        input {
+            width: 94%;
+            padding: 12px 3%;
+            display: flex;
+            margin: 8px 0 20px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            border-radius: 8px;
+            outline: none;
+            color: var(--Grey-600, #4F4F4F);
+            height: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #2c7742;
+            color: #fff;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            padding: 12px 0;
+            width: 100%;
+            border: 0;
+            height: auto;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        #vsblt {
+            cursor: pointer;
+        }
+
+        h1 {
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 30px;
+            margin: 25.5px 0;
+        }
+
+        .kc-logo-text {
+            display: none;
+        }
+
+        .form-wraper {
+            margin: 0 34%;
+            border-radius: 12px;
+            background-color: #fff;
+            display: flex;
+            width: 26%;
+            padding: 3%;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #kc-form, #kc-reset-password-form {
+            width: 100%;
+        }
+
+        .red-span {
+            color: red;
+        }
+
+        .logo {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .logo svg {
+            width: 200px;
+            height: auto;
+        }
+
+        .password-wraper {
+            width: 94%;
+            padding: 12px 3%;
+            display: flex;
+            margin: 8px 0 20px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            border-radius: 8px;
+            height: 20px;
+        }
+
+        .password-wraper input {
+            height: auto;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            border-radius: 0;
+        }
+
+        #input-error {
+            color: red;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .forgot {
+            margin-top: 32px;
+            margin-bottom: 32px;
+        }
+
+        .forgot span a {
+            color:#2c7742;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .back {
+            position: absolute;
+            top: 12%;
+            left: 8%;
+        }
+
+        .back span a svg {
+            width: 40px;
+            height: auto;
+        }
+
+        #toast {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background-color: #2F71BF;
+            color: #fff;
+            padding: 10px 20px;
+            height: 48px;
+            width: 400px;
+            border-radius: 2px;
+            display: none; /*sem toast*/
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 4px 4px 4px rgba(24, 24, 24, 0.4);
+        }
+
+        #toast svg {
+            width: 24px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        #toast p {
+            font-size: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            line-height: 24px;
+            margin-left: 10px;
+        }
+    </style>
+    
 
     <#if properties.meta?has_content>
         <#list properties.meta?split(' ') as meta>
@@ -30,26 +219,11 @@
             <script src="${url.resourcesPath}/${script}" type="text/javascript"></script>
         </#list>
     </#if>
-    <script type="importmap">
-        {
-            "imports": {
-                "rfc4648": "${url.resourcesCommonPath}/node_modules/rfc4648/lib/rfc4648.js"
-            }
-        }
-    </script>
-    <script src="${url.resourcesPath}/js/menu-button-links.js" type="module"></script>
     <#if scripts??>
         <#list scripts as script>
             <script src="${script}" type="text/javascript"></script>
         </#list>
     </#if>
-    <script type="module">
-        import { checkCookiesAndSetTimer } from "${url.resourcesPath}/js/authChecker.js";
-
-        checkCookiesAndSetTimer(
-          "${url.ssoLoginInOtherTabsUrl?no_esc}"
-        );
-    </script>
 </head>
 
 <body class="${properties.kcBodyClass!}">
@@ -61,22 +235,20 @@
     <div class="${properties.kcFormCardClass!}">
         <header class="${properties.kcFormHeaderClass!}">
             <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
-                <div class="${properties.kcLocaleMainClass!}" id="kc-locale">
+                <!-- <div class="${properties.kcLocaleMainClass!}" id="kc-locale">
                     <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
-                        <div id="kc-locale-dropdown" class="menu-button-links ${properties.kcLocaleDropDownClass!}">
-                            <button tabindex="1" id="kc-current-locale-link" aria-label="${msg("languages")}" aria-haspopup="true" aria-expanded="false" aria-controls="language-switch1">${locale.current}</button>
-                            <ul role="menu" tabindex="-1" aria-labelledby="kc-current-locale-link" aria-activedescendant="" id="language-switch1" class="${properties.kcLocaleListClass!}">
-                                <#assign i = 1>
+                        <div id="kc-locale-dropdown" class="${properties.kcLocaleDropDownClass!}">
+                            <a href="#" id="kc-current-locale-link">${locale.current}</a>
+                            <ul class="${properties.kcLocaleListClass!}">
                                 <#list locale.supported as l>
-                                    <li class="${properties.kcLocaleListItemClass!}" role="none">
-                                        <a role="menuitem" id="language-${i}" class="${properties.kcLocaleItemClass!}" href="${l.url}">${l.label}</a>
+                                    <li class="${properties.kcLocaleListItemClass!}">
+                                        <a class="${properties.kcLocaleItemClass!}" href="${l.url}">${l.label}</a>
                                     </li>
-                                    <#assign i++>
                                 </#list>
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </#if>
         <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
             <#if displayRequiredFields>
@@ -101,7 +273,7 @@
                         <#nested "show-username">
                         <div id="kc-username" class="${properties.kcFormGroupClass!}">
                             <label id="kc-attempted-username">${auth.attemptedUsername}</label>
-                            <a id="reset-login" href="${url.loginRestartFlowUrl}" aria-label="${msg("restartLoginTooltip")}">
+                            <a id="reset-login" href="${url.loginRestartFlowUrl}">
                                 <div class="kc-login-tooltip">
                                     <i class="${properties.kcResetFlowIcon!}"></i>
                                     <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
@@ -114,7 +286,7 @@
                 <#nested "show-username">
                 <div id="kc-username" class="${properties.kcFormGroupClass!}">
                     <label id="kc-attempted-username">${auth.attemptedUsername}</label>
-                    <a id="reset-login" href="${url.loginRestartFlowUrl}" aria-label="${msg("restartLoginTooltip")}">
+                    <a id="reset-login" href="${url.loginRestartFlowUrl}">
                         <div class="kc-login-tooltip">
                             <i class="${properties.kcResetFlowIcon!}"></i>
                             <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
@@ -130,41 +302,28 @@
           <#-- App-initiated actions should not see warning messages about the need to complete the action -->
           <#-- during login.                                                                               -->
           <#if displayMessage && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
-              <div id="toast" class="alert-${message.type} ${properties.kcAlertClass!} pf-m-<#if message.type = 'error'>danger<#else>${message.type}</#if>">
+              <div class="alert-${message.type} ${properties.kcAlertClass!} pf-m-<#if message.type = 'error'>danger<#else>${message.type}</#if>">
                   <div class="pf-c-alert__icon">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_4271_39243)">
-                        <path d="M7 0.875C3.61758 0.875 0.875 3.61758 0.875 7C0.875 10.3824 3.61758 13.125 7 13.125C10.3824 13.125 13.125 10.3824 13.125 7C13.125 3.61758 10.3824 0.875 7 0.875ZM7.4375 9.95312C7.4375 10.0133 7.38828 10.0625 7.32812 10.0625H6.67188C6.61172 10.0625 6.5625 10.0133 6.5625 9.95312V6.23438C6.5625 6.17422 6.61172 6.125 6.67188 6.125H7.32812C7.38828 6.125 7.4375 6.17422 7.4375 6.23438V9.95312ZM7 5.25C6.82827 5.24649 6.66476 5.17581 6.54455 5.05312C6.42434 4.93044 6.35701 4.76551 6.35701 4.59375C6.35701 4.42199 6.42434 4.25706 6.54455 4.13438C6.66476 4.01169 6.82827 3.94101 7 3.9375C7.17173 3.94101 7.33524 4.01169 7.45545 4.13438C7.57566 4.25706 7.64299 4.42199 7.64299 4.59375C7.64299 4.76551 7.57566 4.93044 7.45545 5.05312C7.33524 5.17581 7.17173 5.24649 7 5.25Z" fill="white"/>
-                        </g>
-                        <defs>
-                        <clipPath id="clip0_4271_39243">
-                        <rect width="14" height="14" fill="white"/>
-                        </clipPath>
-                        </defs>
-                        </svg>
                       <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
                       <#if message.type = 'warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
                       <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
                       <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
                   </div>
-                  <span class="${properties.kcAlertTitleClass!}">${kcSanitize(message.summary)?no_esc}</span>
-                  <p onclick="close">x</p>
+                      <span class="${properties.kcAlertTitleClass!}">${kcSanitize(message.summary)?no_esc}</span>
               </div>
           </#if>
 
           <#nested "form">
 
-          <#if auth?has_content && auth.showTryAnotherWayLink()>
-              <form id="kc-select-try-another-way-form" action="${url.loginAction}" method="post">
-                  <div class="${properties.kcFormGroupClass!}">
-                      <input type="hidden" name="tryAnotherWay" value="on"/>
-                      <a href="#" id="try-another-way"
-                         onclick="document.forms['kc-select-try-another-way-form'].submit();return false;">${msg("doTryAnotherWay")}</a>
-                  </div>
-              </form>
-          </#if>
-
-          <#nested "socialProviders">
+            <#if auth?has_content && auth.showTryAnotherWayLink() && showAnotherWayIfPresent>
+                <form id="kc-select-try-another-way-form" action="${url.loginAction}" method="post">
+                    <div class="${properties.kcFormGroupClass!}">
+                        <input type="hidden" name="tryAnotherWay" value="on"/>
+                        <a href="#" id="try-another-way"
+                           onclick="document.forms['kc-select-try-another-way-form'].submit();return false;">${msg("doTryAnotherWay")}</a>
+                    </div>
+                </form>
+            </#if>
 
           <#if displayInfo>
               <div id="kc-info" class="${properties.kcSignUpClass!}">
